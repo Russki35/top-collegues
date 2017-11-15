@@ -1,0 +1,22 @@
+<form>
+    <div class="form-group">
+      <h1>Top Collègues</h1>
+      <small id="emailHelp" class="form-text text-muted">Les meilleurs collègues du moment</small>
+      <label for="exampleInputEmail1">Pseudo</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pseudo" #pseudo>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">URL image</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="URL image" #imageUrl>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
+  </form>
+
+  <div class="row">
+      <ngb-alert class="col-11" *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+    </div>
