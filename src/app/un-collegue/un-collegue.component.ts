@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collegue } from '../shared/domain/collegue'
+import { Collegue } from '../shared/domain/collegue';
+import { CollegueService } from '../shared/service/collegue.service';
 
 
 @Component({
@@ -11,18 +12,20 @@ import { Collegue } from '../shared/domain/collegue'
 export class UnCollegueComponent implements OnInit {
 
   @Input() collegue:Collegue;
-  constructor() { 
+  constructor(private _collegueService: CollegueService) { 
 
   }
 
   jaime(){
 
-    this.collegue.score = this.collegue.score + 10
+    this._collegueService.aimerUnCollegue(this.collegue)
+    .then(col => this.collegue = col)
   }
 
   jedeteste(){
 
-    this.collegue.score = this.collegue.score - 5
+    this._collegueService.detesterUnCollegue(this.collegue)
+    .then(col => this.collegue = col)
   }
 
 
