@@ -1,4 +1,6 @@
-<form>
+
+<div class="container-fluid">
+  <form>
     <div class="form-group">
       <h1>Top Collègues</h1>
       <small id="emailHelp" class="form-text text-muted">Les meilleurs collègues du moment</small>
@@ -16,11 +18,15 @@
     </div>
     <button type="submit" class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
   </form>
+</div><!-- container -->
 
   <div class="row">
       <ngb-alert class="col-11" *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
-    </div>
-
+  </div>
+<div class="container-fluid">
+  <div class="row ml-5">
     <div *ngFor='let collegue of collegues'>
       <app-un-collegue [collegue]="collegue"></app-un-collegue>
     </div>
+  </div>
+</div><!-- container -->
