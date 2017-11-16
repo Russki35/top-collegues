@@ -1,0 +1,14 @@
+
+
+<div class="row">
+  <div id="card" class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img [src]="collegue.urlImg" class="round" width=200 height="200">
+      <div class="caption">
+          <label>{{collegue.nom}}</label>
+          <label>{{collegue.score}}</label>       
+        <p><a href="#" class="btn btn-primary" (click)="jaime()">J'aime</a> <a href="#" class="btn btn-danger" (click)="jedeteste()">Je déteste</a></p>
+      </div>
+    </div>
+  </div>
+</div>

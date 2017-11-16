@@ -20,3 +20,7 @@
   <div class="row">
       <ngb-alert class="col-11" *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
     </div>
+
+    <div *ngFor='let collegue of collegues'>
+      <app-un-collegue [collegue]="collegue"></app-un-collegue>
+    </div>

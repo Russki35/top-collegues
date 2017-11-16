@@ -26,25 +26,27 @@ export class AppComponent implements OnInit {
     this._success.next(`Le collègue ${pseudo.value} a été ajouté avec succès`)
     pseudo.value = " ";
     ImageUrl.value= " ";
-    return false;
+    return false;   
   }
 
   
 
 ngOnInit() {
   // TODO alimenter le tableau de collègues avec 5 collègues possédant des scores variés
-  this.collegues = [new Collegue("Jean-Jean", "https://www.univ-brest.fr/digitalAssets/35/35129_jeanjean.JPG", 300),
-                    new Collegue("Gi-Gi", "http://images.charentelibre.fr/2017/11/14/5a0aafb77971bbaa36c52536/golden/1000x625/italie-les-tristes-adieux-de-l-immense-gianluigi-buffon.jpg", 200),
-                    new Collegue("Miche-Miche", "https://s1-ssl.dmcdn.net/A00f9/526x297-cuF.jpg", 150),
+  this.collegues = [new Collegue("Jo-Jo", "https://orig00.deviantart.net/861e/f/2016/100/9/6/_87974594_32be803c_efcf_47ef_9a17_197106074016_by_unlimitedblankworks-d9yh993.jpg", 70000000),
+                    new Collegue("Benito", "http://afflictor.com/wp-content/uploads/2014/04/mussolini123.jpg", 500000),
+                    new Collegue("Mao", "https://www.herodote.net/Images/Mao.jpg", 100000000),
                     new Collegue("Pol-Pot", "http://i.telegraph.co.uk/multimedia/archive/01381/pol_pot_1381980f.jpg", 60),
-                    new Collegue("Cri-Cri", "https://www.telestar.fr/var/telestar/storage/images/2014/articles/sebastien-roch-les-mysteres-de-l-amour-cricri-d-amour-papa-pour-la-seconde-fois-!-exclusif-39523/421889-1-fre-FR/Sebastien-Roch-Les-mysteres-de-l-amour-Cricri-d-amour-papa-pour-la-seconde-fois-!-Exclusif.jpg", 250)
+                    new Collegue("Kim", "https://upload.wikimedia.org/wikipedia/commons/5/5c/Kim_Il_Sung_Portrait-2.jpg", 3000000)
                    ]
 
     setTimeout(() => this.staticAlertClosed = true, 20000);
-                   
+  
+
+
     this._success.subscribe((message) => this.successMessage = message);
     debounceTime.call(this._success, 5000).subscribe(() => this.successMessage = null);
-    
+         
   }
 
   

@@ -6,12 +6,26 @@ export class Collegue {
   get nom(){
     return this._nom
   }
+  set nom(nom:string){
+    this._nom = nom
+  }
 
   get urlImg(){
     return this._urlImg
   }
 
+  url(url:string){
+    this._urlImg = url
+  }
+
+
   get score(){
     return this._score
   }
+
+  
+  set score(score:number){
+    this._score = score
+  }
+
 }
