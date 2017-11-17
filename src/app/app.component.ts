@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 
   
 
-ngOnInit() {
+ ngOnInit() {
   // TODO alimenter le tableau de collègues avec 5 collègues possédant des scores variés
   this._collegueService.listerCollegues()
   .then(data => { return this.collegues = data })

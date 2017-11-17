@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-
 import { Collegue } from '../domain/collegue';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
 @Injectable()
 export class CollegueService {
@@ -14,38 +18,43 @@ export class CollegueService {
 
   
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
     listerCollegues():Promise<Collegue[]> {
     // TODO effectuer la liste des collègues
-    return new Promise((resolve, reject)=>{
+    return this.http.get<Collegue[]>('http://localhost:8080/collegues').toPromise()
+    /*return new Promise((resolve, reject)=>{
       if(this.collegues) {
         resolve(this.collegues);
       }
       else {
         reject("Erreur");
       }
-    })
+    })*/
+
     }
     // TODO retourner l'objet Promise<Collegue[]>
     
     sauvegarder(newCollegue:Collegue):Promise<Collegue> {
     // TODO sauvegarder le nouveau collègue
-    return new Promise((resolve, reject) => {
+    return this.http.post<Collegue>('http://localhost:8080/collegues', newCollegue, httpOptions ).toPromise()
+    /*return new Promise((resolve, reject) => {
       this.collegues.push(newCollegue)
       return new Promise((resolve, reject) => {
         resolve(newCollegue)
       })
-    })
+    })*/
     // TODO retourner l'objet Promise<Collegue[]>
     }
     aimerUnCollegue(unCollegue:Collegue):Promise<Collegue> {
     // TODO Aimer un collègue
-    return this.changerScore(unCollegue, 10)
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, {"avis" : "jaime"}, httpOptions).toPromise()
+    //return this.changerScore(unCollegue, 10)
     }
     detesterUnCollegue(unCollegue:Collegue):Promise<Collegue> {
     // TODO Aimer un collègue
-    return this.changerScore(unCollegue, -5)
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, {"avis" : "jeDeteste"}, httpOptions).toPromise()
+    //return this.changerScore(unCollegue, -5)
     }
 
     changerScore(unCollegue: Collegue, score: number): Promise<Collegue> {
