@@ -1,0 +1,14 @@
+<nav>
+  <button type="button" class="btn btn-light" (click)="retour()">Retour à la liste</button>
+</nav>
+<div class="card" style="width:70rem;">
+  <div class="img-container">
+    <img class="card-img-top card-img" [src]="col?.urlImg" alt="Photo de {{col?.nom}}">
+  </div>
+  <div class="card-block">
+    <h4 class="card-title" align="center">{{col?.nom}}</h4>
+    <h4 class="card-title" align="center">{{col?.score}}</h4>
+    <button class="btn btn-success col-4 float-left" (click)="jaime()">J'aime</button>
+    <button class="btn btn-danger col-4 float-right" (click)="jeDeteste()">Je déteste</button>
+  </div>
+</div>

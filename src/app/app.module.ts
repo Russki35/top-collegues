@@ -5,12 +5,20 @@ import { CollegueService } from './shared/service/collegue.service'
 import { AppComponent } from './app.component';
 import { UnCollegueComponent } from './un-collegue/un-collegue.component';
 import {HttpClientModule} from '@angular/common/http';
+import { TableauComponent } from './tableau/tableau.component';
+import { CarrouselComponent } from './carrousel/carrousel.component';
+import { DetailsComponent } from './details/details.component';
+import { ListeComponent } from './liste/liste.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UnCollegueComponent
+    UnCollegueComponent,
+    TableauComponent,
+    CarrouselComponent,
+    DetailsComponent,
+    ListeComponent
   ],
   imports: [
     BrowserModule,
